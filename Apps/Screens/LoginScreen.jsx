@@ -1,12 +1,16 @@
+/*
 import { View, Text, Image,StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import Colors from '../Utils/Colors'
 import { client } from './../Utils/KindConfig'
+import { AuthContext } from '../../App'
 export default function LoginScreen() {
-   
+  
+   //const {auth,setAuth} = useContext(AuthContext);
     const handleSignUp = async () => {
         const token = await client.register();
         if (token) {
+          //setAuth(true)
             console.log("user singed up successfully")
         }
       };
@@ -14,6 +18,7 @@ export default function LoginScreen() {
       const handleSignIn = async () => {
         const token = await client.login();
         if (token) {
+          //setAuth(true)
           console.log("user signed in successfully")
         }
       };
@@ -45,3 +50,32 @@ export default function LoginScreen() {
         marginTop:60
     }
 })
+*/
+import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import LogScreen from './LogScreen';
+import SignupScreen from './SignupScreen'; 
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Login" component={LogScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
