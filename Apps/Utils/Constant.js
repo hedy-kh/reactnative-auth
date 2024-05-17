@@ -1,0 +1,7 @@
+export default{
+   KINDE_ISSUER_URL:"https://mobileapp.kinde.com",
+   KINDE_POST_CALLBACK_URL:"exp://192.168.231.110:8081",
+   KINDE_CLIENT_ID:"1062cf4754ec4672bfe9151c71221e45",
+   KINDE_POST_LOGOUT_REDIRECT_URL:"exp://192.168.231.110:8081"
+
+}
